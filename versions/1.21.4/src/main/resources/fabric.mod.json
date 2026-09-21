@@ -3,7 +3,7 @@
   "id": "yazoni",
   "version": "${version}",
   "name": "Yazoni Client",
-  "description": "Yazoni Client foundation for Minecraft 1.21.4.",
+  "description": "Yazoni Client — performance, PvP HUD, visuals and client utilities for Minecraft 1.21.4.",
   "authors": ["Yazonii"],
   "license": "MIT",
   "environment": "client",

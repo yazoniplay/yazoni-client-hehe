@@ -1,0 +1,2 @@
+package com.yazoni.client.ui;
+public final class HudLayout{public static int infoX=8,infoY=8,keysX=0,keysY=0,crosshairSize=5;private HudLayout(){}public static void clamp(int w,int h){keysX=Math.max(0,Math.min(w-110,keysX));keysY=Math.max(0,Math.min(h-90,keysY));infoX=Math.max(0,Math.min(w-180,infoX));infoY=Math.max(0,Math.min(h-200,infoY));}public static void reset(int w,int h){infoX=8;infoY=8;keysX=Math.max(0,w-104);keysY=Math.max(0,h-80);}}
