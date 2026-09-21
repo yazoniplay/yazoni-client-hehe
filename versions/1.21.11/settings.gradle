@@ -1,0 +1,9 @@
+pluginManagement {
+    repositories {
+        maven { url = "https://maven.fabricmc.net/" }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+plugins { id 'net.fabricmc.fabric-loom-remap' version "1.14" }
+rootProject.name = "yazoni-client-1.21.11"
