@@ -19,13 +19,9 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:" + project.fabric_api_version
 }
 
-loom {
-    splitEnvironmentSourceSets()
-    mods {
-        yazoni {
-            sourceSet sourceSets.main
-            sourceSet sourceSets.client
-        }
+sourceSets {
+    main {
+        java.srcDir("src/client/java")
     }
 }
 
