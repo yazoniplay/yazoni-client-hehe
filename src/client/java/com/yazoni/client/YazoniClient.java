@@ -2,6 +2,7 @@ package com.yazoni.client;
 
 import com.yazoni.client.module.BuiltinModules;
 import com.yazoni.client.module.ModuleManager;
+import com.yazoni.client.ui.YazoniKeybinds;
 import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ public final class YazoniClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BuiltinModules.registerAll(MODULES);
+        YazoniKeybinds.register();
         LOGGER.info("Yazoni Client initialized with {} built-in modules.", MODULES.all().size());
     }
 }
