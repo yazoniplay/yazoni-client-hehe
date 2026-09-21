@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom-remap'
+    id 'fabric-loom'
     id 'maven-publish'
 }
 base { archivesName = project.archive_base_name }
