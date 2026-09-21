@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "yazoni",
+  "version": "${version}",
+  "name": "Yazoni Client",
+  "description": "A performance-focused Minecraft client with PvP, HUD, visual and optimization features.",
+  "authors": ["Yazonii"],
+  "contact": {
+    "homepage": "https://github.com/yazoniplay/yazoni-client-hehe",
+    "sources": "https://github.com/yazoniplay/yazoni-client-hehe"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.yazoni.client.YazoniClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
