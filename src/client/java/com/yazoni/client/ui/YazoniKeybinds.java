@@ -2,8 +2,8 @@ package com.yazoni.client.ui;
 
 import com.yazoni.client.YazoniClient;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyMappingHelper;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
 
 public final class YazoniKeybinds {
@@ -12,18 +12,22 @@ public final class YazoniKeybinds {
     private YazoniKeybinds() {}
 
     public static void register() {
-        menuKey = new KeyMapping(
+        KeyMapping.Category category = KeyMapping.Category.register(
+                net.minecraft.resources.Identifier.fromNamespaceAndPath(YazoniClient.MOD_ID, "main")
+        );
+
+        menuKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 "key.yazoni.open_menu",
                 GLFW.GLFW_KEY_RIGHT_SHIFT,
-                "key.categories.yazoni"
-        );
+                category
+        ));
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (menuKey.consumeClick()) {
-                if (client.screen == null) {
-                    client.setScreen(new YazoniScreen());
-                }
+                if (client.screen == null) client.setScreen(new YazoniScreen());
             }
             YazoniClient.MODULES.tick();
+            YazoniHud.tick(client);
         });
     }
 }

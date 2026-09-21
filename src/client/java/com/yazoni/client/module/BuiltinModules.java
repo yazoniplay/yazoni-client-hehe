@@ -19,8 +19,8 @@ public final class BuiltinModules {
 
         register(manager, "keystrokes", "Keystrokes", Category.PVP, "Displays movement and mouse inputs.");
         register(manager, "cps-counter", "CPS Counter", Category.PVP, "Displays clicks per second.");
-        register(manager, "armor-hud", "Armor HUD", Category.PVP, "Displays equipped armor and durability.");
-        register(manager, "potion-hud", "Potion HUD", Category.PVP, "Displays active potion effects.");
+        register(manager, "armor-hud", "Armor HUD", Category.PVP, "Displays your current armor value.");
+        register(manager, "potion-hud", "Potion HUD", Category.PVP, "Displays the number of active effects.");
         register(manager, "direction-hud", "Direction HUD", Category.PVP, "Displays the player's facing direction.");
         register(manager, "coordinates", "Coordinates", Category.PVP, "Displays player coordinates.");
         register(manager, "combo-counter", "Combo Counter", Category.PVP, "Tracks consecutive hits.");
