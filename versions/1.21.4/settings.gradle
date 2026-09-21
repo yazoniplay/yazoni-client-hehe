@@ -5,5 +5,5 @@ pluginManagement {
         mavenCentral()
     }
 }
-plugins { id 'net.fabricmc.fabric-loom-remap' version "1.9.0" }
+plugins { id 'fabric-loom' version "1.9.2" }
 rootProject.name = "yazoni-client-1.21.4"
