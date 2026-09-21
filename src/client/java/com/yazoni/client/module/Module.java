@@ -14,28 +14,14 @@ public abstract class Module {
     private int keybind;
 
     protected Module(String id, String name, Category category, String description) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.description = description;
+        this.id = id; this.name = name; this.category = category; this.description = description;
     }
-
-    public final void setEnabled(boolean enabled) {
-        if (this.enabled == enabled) return;
-        this.enabled = enabled;
-        if (enabled) onEnable(); else onDisable();
-    }
-
+    public final void setEnabled(boolean enabled) { if (this.enabled == enabled) return; this.enabled = enabled; if (enabled) onEnable(); else onDisable(); }
     public final void toggle() { setEnabled(!enabled); }
     public void onEnable() {}
     public void onDisable() {}
     public void onTick() {}
-
-    protected final <T extends Setting<?>> T setting(T setting) {
-        settings.add(setting);
-        return setting;
-    }
-
+    protected final <T extends Setting<?>> T setting(T setting) { settings.add(setting); return setting; }
     public String id() { return id; }
     public String name() { return name; }
     public Category category() { return category; }
