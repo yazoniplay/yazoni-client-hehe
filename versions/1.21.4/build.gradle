@@ -9,12 +9,13 @@ group = project.maven_group
 
 repositories {
     maven { url = "https://maven.fabricmc.net/" }
+    maven { url = "https://libraries.minecraft.net/" }
     mavenCentral()
 }
 
 dependencies {
     minecraft "com.mojang:minecraft:" + project.minecraft_version
-    mappings "net.fabricmc:yarn:1.21.4+build.8:v2"
+    mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:" + project.loader_version
     modImplementation "net.fabricmc.fabric-api:fabric-api:" + project.fabric_api_version
 }
@@ -31,7 +32,7 @@ loom {
 
 processResources {
     inputs.property "version", project.version
-    filesMatching("fabric.mod.json") { expand "version": project.version }
+    filesMatching("fabric.mod.json") { expand "version", project.version }
 }
 
 tasks.withType(JavaCompile).configureEach {
