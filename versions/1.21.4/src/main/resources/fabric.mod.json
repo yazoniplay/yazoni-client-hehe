@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "yazoni",
+  "version": "${version}",
+  "name": "Yazoni Client",
+  "description": "Yazoni Client foundation for Minecraft 1.21.4.",
+  "authors": ["Yazonii"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": { "client": ["com.yazoni.client.YazoniClient"] },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
