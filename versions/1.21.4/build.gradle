@@ -10,14 +10,9 @@ base {
 version = project.mod_version
 group = project.maven_group
 
-loom {
-    splitEnvironmentSourceSets()
-
-    mods {
-        yazoni {
-            sourceSet sourceSets.main
-            sourceSet sourceSets.client
-        }
+sourceSets {
+    main {
+        java.srcDir("src/client/java")
     }
 }
 
