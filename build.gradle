@@ -3,10 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-base {
-    archivesName = project.archive_base_name
-}
-
+base { archivesName = project.archive_base_name }
 version = project.mod_version
 group = project.maven_group
 
@@ -23,7 +20,6 @@ dependencies {
 
 loom {
     splitEnvironmentSourceSets()
-
     mods {
         "yazoni" {
             sourceSet sourceSets.main
@@ -34,10 +30,7 @@ loom {
 
 processResources {
     inputs.property "version", project.version
-
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
+    filesMatching("fabric.mod.json") { expand "version": project.version }
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -59,8 +52,6 @@ jar {
 
 publishing {
     publications {
-        create("mavenJava", MavenPublication) {
-            from components.java
-        }
+        create("mavenJava", MavenPublication) { from components.java }
     }
 }
