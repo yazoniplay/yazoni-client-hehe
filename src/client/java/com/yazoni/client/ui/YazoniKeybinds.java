@@ -8,6 +8,7 @@ import org.lwjgl.glfw.GLFW;
 
 public final class YazoniKeybinds {
     private static KeyMapping menuKey;
+    private static KeyMapping hudEditorKey;
 
     private YazoniKeybinds() {}
 
@@ -22,9 +23,18 @@ public final class YazoniKeybinds {
                 category
         ));
 
+        hudEditorKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+                "key.yazoni.hud_editor",
+                GLFW.GLFW_KEY_RIGHT_CONTROL,
+                category
+        ));
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (menuKey.consumeClick()) {
                 if (client.screen == null) client.setScreen(new YazoniScreen());
+            }
+            while (hudEditorKey.consumeClick()) {
+                if (client.screen == null) client.setScreen(new YazoniHudEditorScreen());
             }
             YazoniClient.MODULES.tick();
             YazoniHud.tick(client);

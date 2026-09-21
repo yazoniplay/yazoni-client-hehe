@@ -30,7 +30,6 @@ public final class YazoniHud {
 
     public static void tick(Minecraft client) {
         if (client.player == null) return;
-
         boolean attack = client.options.keyAttack.isDown();
         if (attack && !lastAttack) CLICKS.addLast(System.currentTimeMillis());
         lastAttack = attack;
@@ -45,8 +44,8 @@ public final class YazoniHud {
         if (client.options.hideGui || client.player == null) return;
 
         LocalPlayer player = client.player;
-        int x = 8;
-        int y = 8;
+        int x = HudLayout.infoX;
+        int y = HudLayout.infoY;
 
         y = line(graphics, client, "fps-hud", "FPS " + client.getFps(), x, y, false);
         y = line(graphics, client, "ping-hud", "PING " + ping(client), x, y, false);
@@ -57,11 +56,11 @@ public final class YazoniHud {
         y = line(graphics, client, "armor-hud", "ARMOR " + player.getArmorValue(), x, y, false);
         y = line(graphics, client, "potion-hud", "EFFECTS " + player.getActiveEffects().size(), x, y, false);
         y = line(graphics, client, "session-timer", "SESSION " + sessionTime(), x, y, true);
-        y = line(graphics, client, "server-info", serverInfo(client), x, y, true);
+        line(graphics, client, "server-info", serverInfo(client), x, y, true);
 
         if (enabled("keystrokes")) {
-            int baseX = client.getWindow().getGuiScaledWidth() - 104;
-            int baseY = client.getWindow().getGuiScaledHeight() - 80;
+            int baseX = HudLayout.keysX;
+            int baseY = HudLayout.keysY;
             key(graphics, client, "W", client.options.keyUp.isDown(), baseX + 34, baseY);
             key(graphics, client, "A", client.options.keyLeft.isDown(), baseX, baseY + 27);
             key(graphics, client, "S", client.options.keyDown.isDown(), baseX + 34, baseY + 27);
@@ -73,8 +72,9 @@ public final class YazoniHud {
         if (enabled("custom-crosshair")) {
             int cx = client.getWindow().getGuiScaledWidth() / 2;
             int cy = client.getWindow().getGuiScaledHeight() / 2;
-            graphics.fill(cx - 1, cy - 5, cx + 1, cy + 6, 0xFFFF9B4A);
-            graphics.fill(cx - 5, cy - 1, cx + 6, cy + 1, 0xFFFF9B4A);
+            int s = HudLayout.crosshairSize;
+            graphics.fill(cx - 1, cy - s, cx + 1, cy + s + 1, 0xFFFF9B4A);
+            graphics.fill(cx - s, cy - 1, cx + s + 1, cy + 1, 0xFFFF9B4A);
         }
     }
 
